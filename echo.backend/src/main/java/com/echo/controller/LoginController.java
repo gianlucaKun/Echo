@@ -13,6 +13,8 @@ import com.echo.dto.UserDto;
 import com.echo.security.JwtService;
 import com.echo.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 public class LoginController {
 
@@ -21,6 +23,9 @@ public class LoginController {
 	
 	@Autowired
 	private JwtService jwtService;
+	
+//	@Autowired
+//	private GeoLocationService geoLocationService;
 
 	@PostMapping("/login")
 	private ResponseEntity<?> loginController(@RequestBody UserDto user) {
@@ -37,7 +42,19 @@ public class LoginController {
 	}
 	
 	@PostMapping("/register")
-	private UserDto createUserController (@RequestBody UserDto user) {
+	private UserDto createUserController (@RequestBody UserDto user,  HttpServletRequest request) {
+
+//        String ipAddress = request.getRemoteAddr();
+//        if (ipAddress.equals("0:0:0:0:0:0:0:1")) {
+//            ipAddress = "78.208.255.176"; // Indirizzo IP di iphone
+//        }
+//        System.out.println("ipAddress " + ipAddress);
+//        GeoLocation geoLocation = geoLocationService.getGeoLocation(ipAddress);
+//
+//        System.out.println("geoLocation " + geoLocation.getCity());
+//        
+//        user.setLocation(geoLocation.getCity());
+        
 		if(user.getRoleId() == null) {
 			user.setRoleId((long) 2);
 		}

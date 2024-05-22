@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +35,12 @@ public class User {
     
     @ManyToOne
 	private Role role;
+    
+    @PrePersist
+    protected void prePersist() {
+        if (this.registrationDate == null) {
+            this.registrationDate = LocalDate.now();
+        }
+    }
 
 }

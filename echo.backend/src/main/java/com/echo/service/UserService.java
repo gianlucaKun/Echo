@@ -36,4 +36,15 @@ public class UserService {
 		uRepository.save(saved);
 		return uMapper.toDto(saved);
 	}
+
+	public UserDto findByIdService(Long id) {
+		
+		User finded = uRepository.findById(id).orElse(null);
+		
+		if (finded != null ) {
+			return uMapper.toDto(finded);	
+		} else {
+			return null;
+		}
+	}
 }

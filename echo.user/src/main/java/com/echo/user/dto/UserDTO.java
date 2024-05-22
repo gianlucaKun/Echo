@@ -24,5 +24,5 @@ public class UserDTO {
     private LocalDate dateOfBirth;
     private String location;
     private LocalDate registrationDate;
-	private Role role;
+	private Long roleId;
 }

@@ -30,5 +30,6 @@ public class User {
     private LocalDate dateOfBirth;
     private String location;
     private LocalDate registrationDate;
-	
+	private Role role;
+    
 }

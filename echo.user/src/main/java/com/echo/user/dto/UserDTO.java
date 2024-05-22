@@ -1,24 +1,18 @@
-package com.echo.user.entity;
+package com.echo.user.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.echo.user.entity.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class UserDTO {
 
-	
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String name;
@@ -30,6 +24,5 @@ public class User {
     private LocalDate dateOfBirth;
     private String location;
     private LocalDate registrationDate;
-	private Role role;
-    
+	private Long roleId;
 }

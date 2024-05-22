@@ -1,9 +1,0 @@
-com\echo\dto\UserDto.class
-com\echo\Application.class
-com\echo\entity\Role.class
-com\echo\mapper\UserMapperImpl.class
-com\echo\service\UserService.class
-com\echo\controller\UserController.class
-com\echo\mapper\UserMapper.class
-com\echo\repository\UserRepository.class
-com\echo\entity\User.class

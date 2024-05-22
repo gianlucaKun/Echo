@@ -1,6 +1,7 @@
 package com.echo.user.entity;
 
-import jakarta.annotation.Generated;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,4 +20,15 @@ public class User {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	private String name;
+	private String surname;
+	private String password;
+	private String username;
+	private String imgUrl;
+	private String email;
+    private LocalDate dateOfBirth;
+    private String location;
+    private LocalDate registrationDate;
+	
 }

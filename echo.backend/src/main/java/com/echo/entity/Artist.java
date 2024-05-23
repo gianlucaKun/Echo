@@ -20,5 +20,7 @@ public class Artist {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	private String fullname;
 
 }

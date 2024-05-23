@@ -46,11 +46,13 @@ public class LoginController {
 	@PostMapping("/register")
 	private UserDto createUserController (@RequestBody User user,  HttpServletRequest request) {
 
+		//CODE GEOLOCALIZZAZIONE
+		
 //        String ipAddress = request.getRemoteAddr();
 //        if (ipAddress.equals("0:0:0:0:0:0:0:1")) {
 //            ipAddress = "78.208.255.176"; // Indirizzo IP di iphone
 //        }
-//        System.out.println("ipAddress " + ipAddress);
+//        System.out.println("ipAddress " + ipAddress);                                        
 //        GeoLocation geoLocation = geoLocationService.getGeoLocation(ipAddress);
 //
 //        System.out.println("geoLocation " + geoLocation.getCity());

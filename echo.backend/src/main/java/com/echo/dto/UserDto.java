@@ -17,7 +17,7 @@ private Long id;
 	
 	private String name;
 	private String surname;
-	private String password;
+	private String password;  //togliere 
 	private String username;
 	private String imgUrl;
 	private String email;

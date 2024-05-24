@@ -1,7 +1,6 @@
 package com.echo.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +31,14 @@ public class PlaylistController {
     }
 
     @GetMapping("/{id}")
-    public PlaylistDto getPlaylist(@PathVariable Long id) {
-        
-    	PlaylistDto finded = playlistService.getPlaylist(id);
-    	
-    	return finded;
+    public ResponseEntity<PlaylistDto> getPlaylist(@PathVariable Long id) {
+        PlaylistDto finded = playlistService.getPlaylist(id);
+        if (finded != null) {
+            return ResponseEntity.ok(finded);
+        }
+        return ResponseEntity.notFound().build();
     }
+
 
     @GetMapping
     public List<PlaylistDto> getAllPlaylists() {
@@ -46,7 +47,7 @@ public class PlaylistController {
 
     @PutMapping("/{id}")
     public ResponseEntity<PlaylistDto> updatePlaylist(@PathVariable Long id, @RequestBody Playlist playlistDetails) {
-        Playlist updatedPlaylist = playlistService.updatePlaylist(id, playlistDetails);
+        PlaylistDto updatedPlaylist = playlistService.updatePlaylist(id, playlistDetails);
         return ResponseEntity.ok(updatedPlaylist);
     }
 
@@ -58,7 +59,7 @@ public class PlaylistController {
 
     @PutMapping("/{playlistId}/songs")
     public ResponseEntity<PlaylistDto> addSongsToPlaylist(@PathVariable Long playlistId, @RequestBody Set<Long> songIds) {
-        Playlist updatedPlaylist = playlistService.addSongsToPlaylist(playlistId, songIds);
+        PlaylistDto updatedPlaylist = playlistService.addSongsToPlaylist(playlistId, songIds);
         return ResponseEntity.ok(updatedPlaylist);
     }
 }

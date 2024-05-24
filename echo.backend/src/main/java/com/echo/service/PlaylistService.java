@@ -41,24 +41,24 @@ public class PlaylistService {
         return null;
     }
 
-    public List<Playlist> getAllPlaylists() {
-        return playlistRepository.findAll();
+    public List<PlaylistDto> getAllPlaylists() {
+        return playlistMapper.toDtoList(playlistRepository.findAll());
     }
 
-    public Playlist updatePlaylist(Long id, Playlist playlistDetails) {
+    public PlaylistDto updatePlaylist(Long id, Playlist playlistDetails) {
         Playlist playlist = playlistRepository.findById(id).orElseThrow(() -> new RuntimeException("Playlist not found"));
         playlist.setName(playlistDetails.getName());
-        return playlistRepository.save(playlist);
+        return  playlistMapper.toDto(playlistRepository.save(playlist));
     }
 
     public void deletePlaylist(Long id) {
         playlistRepository.deleteById(id);
     }
 
-    public Playlist addSongsToPlaylist(Long playlistId, Set<Long> songIds) {
+    public PlaylistDto addSongsToPlaylist(Long playlistId, Set<Long> songIds) {
         Playlist playlist = playlistRepository.findById(playlistId).orElseThrow(() -> new RuntimeException("Playlist not found"));
         Set<Song> songs = new HashSet<>(songRepository.findAllById(songIds));
         playlist.getSongs().addAll(songs);
-        return playlistRepository.save(playlist);
+        return playlistMapper.toDto(playlistRepository.save(playlist));
     }
 }

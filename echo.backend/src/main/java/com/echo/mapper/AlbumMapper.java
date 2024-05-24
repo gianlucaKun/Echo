@@ -1,5 +1,7 @@
 package com.echo.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -14,4 +16,9 @@ public interface AlbumMapper {
 	
 	@Mapping(source = "artist.id", target = "artistId")
 	AlbumDto toDto ( Album album );
+	
+	
+	List<AlbumDto> toDtoList ( List<Album> album );
+	
+	List<Album> toEntityList ( List<AlbumDto> dto );
 }

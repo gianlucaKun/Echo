@@ -1,9 +1,11 @@
 package com.echo.entity;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,7 +33,9 @@ public class Song {
     @ManyToOne
     private Artist artist;
 
-    @ManyToMany(mappedBy = "songs")
-    private Set<Artist> artists = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Artist> artists = new HashSet<>();
+    
+
 }
 

@@ -1,13 +1,15 @@
 package com.echo.dto;
 
-import java.util.Set;
+import java.util.Collection;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
-public class ArtistDto {
+public class SongDto {
     private Long id;
-    private String fullname;
+    private String title;
+    private Long albumId;
+    private Long artistId;
     @JsonIgnore // Ignorare durante la serializzazione per evitare cicli
-    private Set<SongDto> songs;
+    private Collection<ArtistDto> artists;
 }

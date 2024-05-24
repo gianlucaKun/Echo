@@ -36,4 +36,7 @@ public class Song {
 
     @ManyToMany(mappedBy = "songs") // Utilizza mappedBy per specificare che la relazione è mappata dall'entità Song
     private Collection<Artist> artists = new HashSet<>();
+    
+    @ManyToMany(mappedBy = "songs")
+    private Collection<Playlist> playlists = new HashSet<>();
 }

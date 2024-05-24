@@ -2,6 +2,8 @@ package com.echo.dto;
 
 import java.util.Collection;
 import lombok.Data;
+
+import com.echo.entity.Playlist;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
@@ -12,4 +14,6 @@ public class SongDto {
     private Long artistId;
     @JsonIgnore // Ignorare durante la serializzazione per evitare cicli
     private Collection<ArtistDto> artists;
+    @JsonIgnore
+    private Collection<Playlist> playlists;
 }

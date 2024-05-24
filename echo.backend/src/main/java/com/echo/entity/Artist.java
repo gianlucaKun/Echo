@@ -28,7 +28,7 @@ public class Artist {
 
     @ManyToMany
     @JoinTable(
-        name = "feat",
+        name = "feat", 
         joinColumns = @JoinColumn(name = "artist_id"),
         inverseJoinColumns = @JoinColumn(name = "song_id")
     )

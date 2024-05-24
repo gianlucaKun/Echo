@@ -3,8 +3,9 @@ package com.echo.dto;
 import lombok.Data;
 
 @Data
-public class AlbumDto {
+public class SongDto {
     private Long id;
     private String title;
-    private Long artistId;
+    private AlbumDto album;
+    private ArtistDto artist;
 }
